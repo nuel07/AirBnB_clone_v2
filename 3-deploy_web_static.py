@@ -9,10 +9,12 @@ env.user = "ubuntu"
 
 
 def do_pack(): 
-    """ Return archive path if correctly generated,
-    otherwise Return None"""
+    """
+    Return archive path if correctly generated,
+    otherwise Return None
+    """
     local("mkdir -p versions")
-    dt = datetime.now().strftime(%Y%m%d%H%M%S)
+    dt = datetime.now().strftime("%Y%m%d%H%M%S")
     file_path = "versions/web_static.{}.tgz".format(dt)                 
     tgzip = local("tar -cvzf {} web_static".format(file_path))
 
@@ -23,7 +25,8 @@ def do_pack():
 
     
 def do_deploy(archive_path):
-    """Distributes archive to my web servers.
+    """
+    Distributes archive to my web servers.
     Args:
        archive_path: path to the archive to be distributed
     Return:
@@ -49,7 +52,7 @@ def do_deploy(archive_path):
     return False
 
 def deploy():
-    """ calls the do_pack() and do_deploy() functions """
+    """calls the do_pack() and do_deploy() functions"""
     path = do_pack()
     if path:
         do_deploy(path)

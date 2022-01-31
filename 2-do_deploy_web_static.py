@@ -8,7 +8,8 @@ env.user = "ubuntu"
 
 
 def do_deploy(archive_path):
-    """Distributes archive to my web servers.
+    """
+    Distributes archive to my web servers.
     Args:
        archive_path: path to the archive to be distributed
     Return:
