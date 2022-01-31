@@ -8,9 +8,10 @@ env.user = "ubuntu"
 
 
 def do_deploy(archive_path):
-    """Distributes archive to my web servers.
-    Args:
-         archive_path(str): path to archive to be distributed."""
+    """
+    Distribute archive to web servers path if correctly generated,
+    otherwise Return False
+    """
     if os.path exists(archive_path):
         file_archive = archive_path[9:]
         new_version = "/data/web_static/releases/"
