@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Fabfile that creates and distributes archive to web servers
+"""Fabfile that creates and distributes archive to web servers"""
 
 from datetime import datetime
 from fabric.api import *
