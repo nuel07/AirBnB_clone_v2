@@ -8,14 +8,14 @@ env.hosts = ["3.239.76.17", "34.229.62.150"]
 env.user = "ubuntu"
 
 
-def do_pack(): 
+def do_pack():
     """
     Return archive path if correctly generated,
     otherwise Return None
     """
     local("mkdir -p versions")
     dt = datetime.now().strftime("%Y%m%d%H%M%S")
-    file_path = "versions/web_static.{}.tgz".format(dt)                 
+    file_path = "versions/web_static.{}.tgz".format(dt)
     tgzip = local("tar -cvzf {} web_static".format(file_path))
 
     if tgzip.succeeded:
@@ -23,7 +23,7 @@ def do_pack():
     else:
         return None
 
-    
+
 def do_deploy(archive_path):
     """
     Distributes archive to my web servers.
@@ -43,13 +43,13 @@ def do_deploy(archive_path):
         run("sudo tar -xzf {} -c {}".format(file_archive,
                                             new_version))
         run("sudo rm {}".format(file_archive))
-        run("sudo mv {}/web_static/* {}".format(new_version,
-                                                 new_version))
+        run("sudo mv {}/web_static/* {}".format(new_version, new_version))
         run("sudo rm -rf {}/web_static".format(new_version))
         run("sudo rm -rf /data/web_static/current")
         run("sudo ln -s {} /data/web_static/current".format(new_version))
         return True
     return False
+
 
 def deploy():
     '''Create and distribute an archive to my web servers.'''
