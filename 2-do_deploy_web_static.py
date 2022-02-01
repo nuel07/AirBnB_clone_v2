@@ -13,7 +13,7 @@ def do_deploy(archive_path):
     Distribute archive to web servers path if correctly generated,
     otherwise Return False
     """
-    if os.path exists(archive_path):
+    if os.path.exists(archive_path):
         file_archive = archive_path[9:]
         new_version = "/data/web_static/releases/"
         + file_archive[:-4]

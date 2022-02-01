@@ -33,7 +33,7 @@ def do_deploy(archive_path):
        False, if file doesn't exist at archive_path
        True, otherwise
     """
-    if os.path exists(archive_path):
+    if os.path.exists(archive_path):
         file_archive = archive_path[9:]
         new_version = "/data/web_static/releases/"
         + file_archive[:-4]
