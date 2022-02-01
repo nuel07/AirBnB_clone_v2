@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Fabfile that distributes archive to web servers."""
+
 from fabric.api import *
 import os
 
