@@ -37,10 +37,10 @@ def do_deploy(archive_path):
         file_archive = archive_path[9:]
         new_version = "/data/web_static/releases/"
         + file_archive[:-4]
-        file_archive = "/tmp" + file_archive
+        file_archive = "/tmp/" + file_archive
         put(archive_path, "/tmp/")
         run("sudo mkdir -p {}".format(new_version))
-        run("sudo tar -xzf {} -c {}".format(file_archive,
+        run("sudo tar -xzf {} -c {}/".format(file_archive,
                                             new_version))
         run("sudo rm {}".format(file_archive))
         run("sudo mv {}/web_static/* {}".format(new_version, new_version))
