@@ -36,8 +36,7 @@ def do_deploy(archive_path):
     """
     if os.path.exists(archive_path):
         file_archive = archive_path[9:]
-        new_version = "/data/web_static/releases/"
-        + file_archive[:-4]
+        new_version = "/data/web_static/releases/" + file_archive[:-4]
         file_archive = "/tmp/" + file_archive
         put(archive_path, "/tmp/")
         run("sudo mkdir -p {}".format(new_version))
